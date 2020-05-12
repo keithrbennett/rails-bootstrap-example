@@ -1,0 +1,81 @@
+From 5cf71edad32be699a2798f59042a7de780c9d327 Mon Sep 17 00:00:00 2001
+From: Keith Bennett <keithrbennett@gmail.com>
+Date: Tue, 12 May 2020 12:36:39 -0400
+Subject: [PATCH 2/4] rails g controller home index
+
+---
+ app/assets/stylesheets/home.scss         | 3 +++
+ app/controllers/home_controller.rb       | 4 ++++
+ app/helpers/home_helper.rb               | 2 ++
+ app/views/home/index.html.erb            | 2 ++
+ config/routes.rb                         | 1 +
+ test/controllers/home_controller_test.rb | 9 +++++++++
+ 6 files changed, 21 insertions(+)
+ create mode 100644 app/assets/stylesheets/home.scss
+ create mode 100644 app/controllers/home_controller.rb
+ create mode 100644 app/helpers/home_helper.rb
+ create mode 100644 app/views/home/index.html.erb
+ create mode 100644 test/controllers/home_controller_test.rb
+
+diff --git a/app/assets/stylesheets/home.scss b/app/assets/stylesheets/home.scss
+new file mode 100644
+index 0000000..072f44e
+--- /dev/null
++++ b/app/assets/stylesheets/home.scss
+@@ -0,0 +1,3 @@
++// Place all the styles related to the home controller here.
++// They will automatically be included in application.css.
++// You can use Sass (SCSS) here: https://sass-lang.com/
+diff --git a/app/controllers/home_controller.rb b/app/controllers/home_controller.rb
+new file mode 100644
+index 0000000..95f2992
+--- /dev/null
++++ b/app/controllers/home_controller.rb
+@@ -0,0 +1,4 @@
++class HomeController < ApplicationController
++  def index
++  end
++end
+diff --git a/app/helpers/home_helper.rb b/app/helpers/home_helper.rb
+new file mode 100644
+index 0000000..23de56a
+--- /dev/null
++++ b/app/helpers/home_helper.rb
+@@ -0,0 +1,2 @@
++module HomeHelper
++end
+diff --git a/app/views/home/index.html.erb b/app/views/home/index.html.erb
+new file mode 100644
+index 0000000..2085730
+--- /dev/null
++++ b/app/views/home/index.html.erb
+@@ -0,0 +1,2 @@
++<h1>Home#index</h1>
++<p>Find me in app/views/home/index.html.erb</p>
+diff --git a/config/routes.rb b/config/routes.rb
+index c06383a..7370458 100644
+--- a/config/routes.rb
++++ b/config/routes.rb
+@@ -1,3 +1,4 @@
+ Rails.application.routes.draw do
++  get 'home/index'
+   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+ end
+diff --git a/test/controllers/home_controller_test.rb b/test/controllers/home_controller_test.rb
+new file mode 100644
+index 0000000..6013b68
+--- /dev/null
++++ b/test/controllers/home_controller_test.rb
+@@ -0,0 +1,9 @@
++require 'test_helper'
++
++class HomeControllerTest < ActionDispatch::IntegrationTest
++  test "should get index" do
++    get home_index_url
++    assert_response :success
++  end
++
++end
+-- 
+2.26.2
+

@@ -1,0 +1,22 @@
+From 00809dde2e7f5c63419e64ac89358c75b0289fa4 Mon Sep 17 00:00:00 2001
+From: Keith Bennett <keithrbennett@gmail.com>
+Date: Tue, 12 May 2020 12:37:26 -0400
+Subject: [PATCH 3/4] Change root route to go to new page
+
+---
+ config/routes.rb | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/config/routes.rb b/config/routes.rb
+index 7370458..100e2cf 100644
+--- a/config/routes.rb
++++ b/config/routes.rb
+@@ -1,4 +1,4 @@
+ Rails.application.routes.draw do
+-  get 'home/index'
++  root to: 'home#index'
+   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+ end
+-- 
+2.26.2
+

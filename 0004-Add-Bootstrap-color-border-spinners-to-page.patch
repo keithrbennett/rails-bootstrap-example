@@ -1,0 +1,51 @@
+From b726b6bed5151f1a608de868ceabb9e6debfdb69 Mon Sep 17 00:00:00 2001
+From: Keith Bennett <keithrbennett@gmail.com>
+Date: Tue, 12 May 2020 12:38:37 -0400
+Subject: [PATCH 4/4] Add Bootstrap color border spinners to page
+
+---
+ app/views/home/index.html.erb | 34 ++++++++++++++++++++++++++++++++--
+ 1 file changed, 32 insertions(+), 2 deletions(-)
+
+diff --git a/app/views/home/index.html.erb b/app/views/home/index.html.erb
+index 2085730..3325872 100644
+--- a/app/views/home/index.html.erb
++++ b/app/views/home/index.html.erb
+@@ -1,2 +1,32 @@
+-<h1>Home#index</h1>
+-<p>Find me in app/views/home/index.html.erb</p>
++Add Bootstrap color border spinners to page<h2>
++If Bootstrap is installed and configured correctly, you will see border spinners (spinning circles)
++  of different colors below:
++</h2>
++
++<p></p>
++<p></p>
++
++<div class="spinner-border text-primary" role="status">
++  <span class="sr-only">Loading...</span>
++</div>
++<div class="spinner-border text-secondary" role="status">
++  <span class="sr-only">Loading...</span>
++</div>
++<div class="spinner-border text-success" role="status">
++  <span class="sr-only">Loading...</span>
++</div>
++<div class="spinner-border text-danger" role="status">
++  <span class="sr-only">Loading...</span>
++</div>
++<div class="spinner-border text-warning" role="status">
++  <span class="sr-only">Loading...</span>
++</div>
++<div class="spinner-border text-info" role="status">
++  <span class="sr-only">Loading...</span>
++</div>
++<div class="spinner-border text-light" role="status">
++  <span class="sr-only">Loading...</span>
++</div>
++<div class="spinner-border text-dark" role="status">
++  <span class="sr-only">Loading...</span>
++</div>
+-- 
+2.26.2
+

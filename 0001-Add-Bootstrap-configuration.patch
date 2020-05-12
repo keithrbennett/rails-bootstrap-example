@@ -1,0 +1,70 @@
+From 83565ac2c24a161af47a79d26e51ab53cc1edb26 Mon Sep 17 00:00:00 2001
+From: Keith Bennett <keithrbennett@gmail.com>
+Date: Tue, 12 May 2020 12:35:02 -0400
+Subject: [PATCH 1/4] Add Bootstrap configuration
+
+---
+ app/javascript/packs/application.js         | 8 ++++++++
+ app/javascript/stylesheets/application.scss | 1 +
+ app/views/layouts/application.html.erb      | 1 +
+ config/webpack/environment.js               | 8 ++++++++
+ 4 files changed, 18 insertions(+)
+ create mode 100644 app/javascript/stylesheets/application.scss
+
+diff --git a/app/javascript/packs/application.js b/app/javascript/packs/application.js
+index 9cd55d4..bfd6239 100644
+--- a/app/javascript/packs/application.js
++++ b/app/javascript/packs/application.js
+@@ -8,6 +8,14 @@ require("turbolinks").start()
+ require("@rails/activestorage").start()
+ require("channels")
+ 
++import "bootstrap"
++import "../stylesheets/application"
++
++document.addEventListener("turbolinks:load", () => {
++    $('[data-toggle="tooltip"]').tooltip()
++    $('[data-toggle="popover"]').popover()
++})
++
+ 
+ // Uncomment to copy all static images under ../images to the output folder and reference
+ // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
+diff --git a/app/javascript/stylesheets/application.scss b/app/javascript/stylesheets/application.scss
+new file mode 100644
+index 0000000..19b0ca9
+--- /dev/null
++++ b/app/javascript/stylesheets/application.scss
+@@ -0,0 +1 @@
++@import "~bootstrap/scss/bootstrap";
+diff --git a/app/views/layouts/application.html.erb b/app/views/layouts/application.html.erb
+index ec87c72..0646c51 100644
+--- a/app/views/layouts/application.html.erb
++++ b/app/views/layouts/application.html.erb
+@@ -6,6 +6,7 @@
+     <%= csp_meta_tag %>
+ 
+     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
++    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+   </head>
+ 
+diff --git a/config/webpack/environment.js b/config/webpack/environment.js
+index d16d9af..d28ff4b 100644
+--- a/config/webpack/environment.js
++++ b/config/webpack/environment.js
+@@ -1,3 +1,11 @@
+ const { environment } = require('@rails/webpacker')
+ 
++const webpack = require("webpack")
++
++environment.plugins.append("Provide", new webpack.ProvidePlugin({
++    $: 'jquery',
++    jQuery: 'jquery',
++    Popper: ['popper.js', 'default']
++}))
++
+ module.exports = environment
+-- 
+2.26.2
+
